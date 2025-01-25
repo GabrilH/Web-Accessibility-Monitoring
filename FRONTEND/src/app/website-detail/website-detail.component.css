@@ -1,0 +1,307 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #4285f4;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 0 20px rgba(66, 133, 244, 0.3);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #212121;
+  font-size: 18px;
+}
+
+select,
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #212121;
+  font-size: 14px;
+  outline: none;
+}
+
+select:focus,
+input:focus {
+  border-color: #4285f4;
+  border: 1px solid #757575;
+}
+
+select {
+  appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+input[type="checkbox"]:focus, input[type="checkbox"]:active {
+  outline-color: -webkit-focus-ring-color;
+  outline-style: solid !important;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-family: "Roboto", sans-serif; /* Use the recommended font from Material Design typography */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+table th,
+table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #bdbdbd;
+  font-weight: normal;
+}
+
+table th[tabindex="0"],
+table th[tabindex="0"]:hover {
+  background-color: #4285f4;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+table td a {
+  color: #4285f4;
+  text-decoration: none;
+}
+
+table td a:hover {
+  text-decoration: underline;
+}
+
+table th {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.delete-button {
+  background-color: #ec1d0e;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+  padding: 0;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+  float: right;
+}
+
+
+/* Add Website Button */
+.add-button {
+  background-color: #2196f3; /* Replace with a color from the Material Design color palette */
+  color: #ffffff;
+  border: none; /* Remove the border */
+  border-radius: 4px; /* Use a smaller border radius */
+  cursor: pointer;
+  width: 150px; /* Width of the buttons */
+  height: 40px; /* Height of the buttons */
+  padding: 0; /* Remove padding */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s; /* Add a smooth transition */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24); /* Add elevation to the buttons */
+  margin-bottom: 20px;
+}
+
+.add-button:hover {
+  background-color: #1976d2;
+}
+
+.delete-button:hover {
+  background-color: #ad1b10;
+}
+
+div {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-family: "Roboto", sans-serif;
+  color: #212121;
+}
+
+/* Apply styles to the website URL */
+h2 {
+  color: #007bff;
+  font-size: 24px;
+  margin-bottom: 30px;
+
+}
+
+h3 {
+  font-size: 20px;
+  display: block;
+  margin-bottom: 10px;
+  color: #212121;
+
+}
+
+/* Apply styles to the website details */
+p {
+  margin-bottom: 20px;
+}
+
+/* Colors for Validation Status */
+.status-por-avaliar {
+  background-color: #ffca28;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 200px;
+  height: 40px;
+}
+
+.status-nao-conforme {
+  background-color: #26a69a;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 200px;
+  height: 40px;
+}
+
+.status-conforme {
+  background-color: #66bb6a;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 200px;
+  height: 40px;
+}
+
+.status-erro-avaliacao {
+  background-color: #ef5350;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 200px;
+  height: 40px;
+}
+
+.status-em-avaliacao {
+  background-color: #26a69a;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 200px;
+  height: 40px;
+}
+
+#url {
+  color: #2196f3;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+
+.hidden {
+  display: none;
+}
+
+/* Estilo do modal */
+.modal {
+  display: none; /* Por padrão, o modal fica oculto */
+  position: fixed; /* Mantém o modal fixo na tela */
+  z-index: 1; /* Deixa o modal sobreposto a outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Adiciona rolagem se necessário */
+  background-color: rgba(0,0,0,0.4); /* Cor de fundo escura com transparência */
+}
+
+/* Conteúdo do modal */
+.modal-content {
+  background-color: #fefefe; /* Cor de fundo do modal */
+  margin: 15% auto; /* Centraliza o modal verticalmente e o posiciona a 15% da parte superior da tela */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Define a largura do modal */
+}
+
+/* Botão de fechar */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#evalList {
+  display: inline-block; /* Garante que os spans tenham largura conforme o conteúdo */
+  margin-bottom: 10px; /* Adiciona espaçamento na parte inferior de cada span */
+}
+
+ul {
+  margin-left: 20px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+#go-to-page-button {
+  background-color: #2196f3; /* Replace with a color from the Material Design color palette */
+  color: #ffffff;
+  border: none; /* Remove the border */
+  border-radius: 4px; /* Use a smaller border radius */
+  cursor: pointer;
+  width: 40px; /* Width of the buttons */
+  height: 40px; /* Height of the buttons */
+  padding: 0; /* Remove padding */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s; /* Add a smooth transition */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24); /* Add elevation to the buttons */
+  background-image: url('../lupa.png'); /* Caminho para a imagem da lupa */
+  background-size: cover; /* Ajuste o tamanho da imagem conforme necessário */
+  background-repeat: no-repeat; /* Evita que a imagem se repita */
+  background-position: center; /* Centraliza a imagem */
+}

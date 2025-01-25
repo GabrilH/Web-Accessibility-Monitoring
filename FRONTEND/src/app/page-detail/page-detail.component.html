@@ -1,0 +1,188 @@
+<div *ngIf="page && website">
+  <td>
+    <button
+      id="go-to-website-button"
+      type="button"
+      class="go-back-button"
+      [routerLink]="['/website', website._id]"
+    >
+      Voltar ao Website
+    </button>
+  </td>
+
+  <h2>{{ page.url }}</h2>
+  <h3>Informação Geral da Página</h3>
+  <p>Data de Registo: {{ getPageRegistrationDate(page) }}</p>
+  <p>Data da Última Validação: {{ getPageLastValidationDate(page) }}</p>
+  <p>Estado de Validação: {{ page.validationStatus }}</p>
+
+  <span *ngIf="tests.length != 0">
+    <p>Total de Testes: {{ tests.length }}</p>
+    <p>
+      Testes Passados: {{ getPassedTestsTotal() }} -
+      {{ getPassedTestsPercentage() }}%
+    </p>
+    <p>
+      Testes Falhados: {{ getFailedTestsTotal() }} -
+      {{ getFailedTestsPercentage() }}%
+    </p>
+    <p>
+      Testes com Aviso: {{ getWarningTestsTotal() }} -
+      {{ getWarningTestsPercentage() }}%
+    </p>
+    <p>
+      Testes Não Aplicáveis: {{ getInapplicableTestsTotal() }} -
+      {{ getInapplicableTestsPercentage() }}%
+    </p>
+  </span>
+  <p *ngIf="tests.length == 0" id="no-tests-message">
+    Ainda não foram realizados testes de acessibilidade para esta página.
+  </p>
+
+  <span class="page-detail-buttons">
+    <button class="add-button" (click)="evaluateAccessibility()">
+      Avaliar Página
+    </button>
+
+    <button class="delete-button" (click)="deletePage()">
+      Eliminar Página
+    </button>
+  </span>
+
+  <span *ngIf="tests.length != 0">
+    <h3>Filtrar Testes</h3>
+    <div class="checkbox-group">
+      <label class="checkbox-label1">
+        <input
+          type="checkbox"
+          (change)="typeACTSelected = !typeACTSelected"
+          (change)="filterTests()"
+          [checked]="typeACTSelected"
+        />
+        Regras ACT
+      </label>
+
+      <label class="checkbox-label">
+        <input
+          type="checkbox"
+          (change)="typeWCAGSelected = !typeWCAGSelected"
+          (change)="filterTests()"
+          [checked]="typeWCAGSelected"
+        />
+        Regras WCAG
+      </label>
+
+      <label class="checkbox-label-passed">
+        <input
+          type="checkbox"
+          (change)="passedSelected = !passedSelected"
+          (change)="filterTests()"
+          [checked]="passedSelected"
+        />
+        Passado
+      </label>
+
+      <label class="checkbox-label-failed">
+        <input
+          type="checkbox"
+          (change)="failedSelected = !failedSelected"
+          (change)="filterTests()"
+          [checked]="failedSelected"
+        />
+        Falhado
+      </label>
+
+      <label class="checkbox-label-warning">
+        <input
+          type="checkbox"
+          (change)="warningSelected = !warningSelected"
+          (change)="filterTests()"
+          [checked]="warningSelected"
+        />
+        Aviso
+      </label>
+
+      <label class="checkbox-label-inapplicable">
+        <input
+          type="checkbox"
+          (change)="inapplicableSelected = !inapplicableSelected"
+          (change)="filterTests()"
+          [checked]="inapplicableSelected"
+        />
+        Não Aplicável
+      </label>
+
+      <label class="checkbox-label">
+        <input
+          type="checkbox"
+          (change)="levelASelected = !levelASelected"
+          (change)="filterTests()"
+          [checked]="levelASelected"
+        />
+        Nível A
+      </label>
+
+      <label class="checkbox-label">
+        <input
+          type="checkbox"
+          (change)="levelAASelected = !levelAASelected"
+          (change)="filterTests()"
+          [checked]="levelAASelected"
+        />
+        Nível AA
+      </label>
+
+      <label class="checkbox-label">
+        <input
+          type="checkbox"
+          (change)="levelAAASelected = !levelAAASelected"
+          (change)="filterTests()"
+          [checked]="levelAAASelected"
+        />
+        Nível AAA
+      </label>
+    </div>
+
+    <h3>Testes de Acessibilidade</h3>
+    <table *ngIf="filteredTests.length != 0">
+      <tbody>
+        <tr>
+          <th>Tipo</th>
+          <th>Código</th>
+          <th>Descrição</th>
+          <th>Resultado</th>
+          <th class="no-wrap">Nível Conformidade</th>
+        </tr>
+      </tbody>
+
+      <tbody *ngFor="let test of filteredTests" [class]="test.result">
+        <tr
+          tabindex="0"
+          (keydown.enter)="toggleHidden(test)"
+          (click)="toggleHidden(test)"
+        >
+          <td>{{ test.type }}</td>
+          <td>{{ test.code }}</td>
+          <td>{{ test.description }}</td>
+          <td>{{ test.result }}</td>
+          <td>{{ setToString(test.levels) }}</td>
+        </tr>
+
+        <tr [ngStyle]="{ display: test.isHidden ? 'none' : 'table-row' }">
+          <td colspan="5">
+            <p *ngIf="test.elements.length == 0">
+              Não foram encontrados elementos com este erro.
+            </p>
+            <div
+              *ngFor="let element of test.elements"
+              [class]="element.verdict"
+            >
+              <p>{{ element.verdict }} - {{ element.description }}</p>
+              <code id="elements_code">{{ element.target }}</code>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </span>
+</div>

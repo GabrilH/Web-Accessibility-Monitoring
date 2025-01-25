@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div {
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  color: #007bff;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+h3 {
+  color: #212121;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* Use the recommended font from Material Design typography */
+}
+
+table th,
+table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #bdbdbd;
+  font-weight: normal;
+}
+
+table th[tabindex='0'],
+table th[tabindex='0']:hover {
+  background-color: #4285f4;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+table tr[tabindex='0'] {
+  transition: background-color 0.3s;
+}
+
+table tr[tabindex='0']:hover {
+  background-color: #cfcfcf;
+  cursor: pointer;
+}
+
+table td a {
+  color: #4285f4;
+  text-decoration: none;
+}
+
+table td a:hover {
+  text-decoration: underline;
+}
+
+table th {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.delete-button {
+  background-color: #ec1d0e;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+  padding: 0;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+  float: right;
+}
+
+/* Add Website Button */
+.add-button {
+  background-color: #2196f3; /* Replace with a color from the Material Design color palette */
+  color: #ffffff;
+  border: none; /* Remove the border */
+  border-radius: 4px; /* Use a smaller border radius */
+  cursor: pointer;
+  width: 150px; /* Width of the buttons */
+  height: 40px; /* Height of the buttons */
+  padding: 0; /* Remove padding */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s; /* Add a smooth transition */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24); /* Add elevation to the buttons */
+  margin-bottom: 20px;
+}
+
+.go-back-button {
+  background-color: #2196f3; /* Replace with a color from the Material Design color palette */
+  color: #ffffff;
+  border: none; /* Remove the border */
+  border-radius: 4px; /* Use a smaller border radius */
+  cursor: pointer;
+  width: 150px; /* Width of the buttons */
+  height: 40px; /* Height of the buttons */
+  padding: 0; /* Remove padding */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s; /* Add a smooth transition */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24); /* Add elevation to the buttons */
+  margin-bottom: 20px;
+}
+
+.add-button:hover {
+  background-color: #1976d2;
+}
+
+.delete-button:hover {
+  background-color: #ad1b10;
+}
+
+.go-back-button:hover {
+  background-color: #1976d2;
+}
+
+.passed {
+  color: #0f800b;
+}
+
+.failed {
+  color: #ff3535;
+}
+
+.warning {
+  color: #c5a400;
+}
+
+.inapplicable {
+  color: #8f8f8f;
+}
+
+tbody tr td span code {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.checkbox-group {
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Centers the content horizontally */
+  justify-content: center; /* Centers the content vertically */
+}
+
+.checkbox-label {
+  margin-left: 40px;
+}
+
+.checkbox-label-passed {
+  margin-left: 40px;
+  accent-color: green;
+}
+
+.checkbox-label-failed {
+  margin-left: 40px;
+  accent-color: red;
+}
+
+.checkbox-label-warning {
+  margin-left: 40px;
+  accent-color: #c5a400;
+}
+
+.checkbox-label-inapplicable {
+  margin-left: 40px;
+  accent-color: grey;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+#no-tests-message {
+  font-weight: bold;
+  text-align: center; /* Center text inside the paragraph */
+}
+
+.page-detail-buttons {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#elements_code {
+  width: 1750px;
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}

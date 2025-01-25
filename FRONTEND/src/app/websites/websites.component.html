@@ -1,0 +1,43 @@
+<div>
+  <label for="validation-status-filter">Filtrar por Estado de Validação: </label>
+  <select id="validation-status-filter" [(ngModel)]="selectedValidationStatus" (change)="filterWebsitesByValidationStatus()">
+    <option *ngFor="let status of validationStatusOptions" [value]="status">{{ status }}</option>
+  </select>
+
+<table>
+  <thead>
+    <tr>
+      <th>URL do Website</th>
+      <th></th>
+      <th id="sort-header" tabindex="0" (click)="sortWebsitesByRegistrationDate()" (keydown.enter)="sortWebsitesByRegistrationDate()">Data de Registo</th>
+      <th id="sort-header" tabindex="0" (click)="sortWebsitesByLastValidationDate()" (keydown.enter)="sortWebsitesByLastValidationDate()">Data da Última Validação</th>
+      <th id="sort-header" tabindex="0" (click)="sortWebsitesByValidationStatus()" (keydown.enter)="sortWebsitesByValidationStatus()">Estado de Validação</th>
+      <th>Apagar Website</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let website of filteredWebsites; let i = index">
+      <td>{{ website.url }}</td>
+      <td><button id="go-to-website-button" type="button" class="go-to-button" [routerLink]="['/website', website._id]"></button></td>
+      <td>{{ getWebsiteRegistrationDate(website) }}</td>
+      <td>{{ getWebsiteLastValidationDate(website) }}</td>
+      <td>
+        <button tabindex="-1" [class]="getValidationStatusClass(website.validationStatus)">
+          {{ website.validationStatus }}
+        </button>
+      </td>
+      <td>
+        <button type="button" class="delete-button" (click)="deleteWebsite(website)">
+          Apagar
+        </button>
+    </tr>
+  </tbody>
+</table>
+
+  <label for="new-website">URL do Website: </label>
+  <input id="new-website" #websiteURL />
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="addWebsite(websiteURL.value); websiteURL.value=''">
+    Adicionar Website
+  </button>
+</div>

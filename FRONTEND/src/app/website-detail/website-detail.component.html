@@ -1,0 +1,80 @@
+<div *ngIf="website">
+
+  <h2>{{ website.url }}</h2>
+  <p>Data de Registo: {{ getWebsiteRegistrationDate(website) }}</p>
+  <p>Data da Última Validação: {{ getWebsiteLastValidationDate(website) }}</p>
+  <p>Estado de Validação: {{getWebsiteStatus() }}</p>
+  <button class="add-button" (click)="toggleComponent()">Avaliação das Páginas</button>
+  <div id="myModal" class="modal" [ngStyle]="{'display': isComponentHidden ? 'none' : 'block'}">
+    <div class="modal-content">
+      <button class="close" (click)="toggleComponent()">&times;</button>
+      <h2>Avaliação das Páginas</h2>
+      <span *ngIf="errorTypes.size === 0">O website ainda não tem páginas avaliadas</span>
+      <span *ngIf="errorTypes.size > 0">
+        <button class="add-button" (click)="downloadReport()">Gerar ficheiro relatório</button>
+        <p>
+          <span id="evalList">Total e percentagem de páginas sem erros de acessibilidade: {{ getPageWithNoErrors() }} | {{
+            getPageWithNoErrorsPercentage() }}%</span> <br>
+          <span id="evalList">Total e percentagem de páginas com pelo menos um erro de acessibilidade: {{ getPageWithErrors()
+            }} | {{ getPageWithErrorsPercentage() }}%</span> <br>
+          <span id="evalList">Total e percentagem de páginas com pelo menos um erro de acessibilidade de nível A: {{
+            getPageWithAErrors() }} | {{ getPageWithAErrorsPercentage() }}%</span> <br>
+          <span id="evalList">Total e percentagem de páginas com pelo menos um erro de acessibilidade de nível AA: {{
+            getPageWithAAErrors() }} | {{ getPageWithAAErrorsPercentage() }}%</span> <br>
+          <span id="evalList">Total e percentagem de páginas com pelo menos um erro de acessibilidade de nível AAA: {{
+          getPageWithAAAErrors() }} | {{ getPageWithAAAErrorsPercentage() }}%</span> <br>
+        </p>
+        <span id="evalList">Lista com os 10 erros de acessibilidade mais comuns no total de todas as páginas do website
+          avaliadas:</span>
+        <ul>
+          <li *ngFor="let error of getTop10ErrorTypes()">
+            {{ error[0] }} - {{ error[1].name }} - Ocorrências: {{ error[1].failed }}x
+          </li>
+        </ul>
+      </span>
+    </div>
+  </div>
+  <!-- add button to delete page -->
+  <button class="delete-button" (click)="deleteWebsite(website)">Eliminar Website</button>
+
+    <h3>Páginas</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Selecionar</th>
+          <th>URL da Página</th>
+          <th></th>
+          <th>Data de Registo</th>
+          <th>Data da Última Validação</th>
+          <th>Estado de Validação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let page of website.pages">
+          <td>
+              <input type="checkbox" (change)="togglePageSelection(page)" [checked]="isPageSelected(page)" (keydown.enter)="togglePageSelection(page)"/>
+          </td>
+          <td id="url">{{ page.url }}</td>
+          <td><button id="go-to-page-button" type="button" class="go-to-button" [routerLink]="['/website', website._id, 'page', page._id]"></button></td>
+          <td>{{ getPageRegistrationDate(page) }}</td>
+          <td>{{ getPageLastValidationDate(page) }}</td>
+          <td>
+            <button tabindex="-1" [class]="getValidationStatusClass(page.validationStatus)">
+              {{ page.validationStatus }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- add button to delete selected pages -->
+    <button class="delete-button" (click)="deleteSelectedPages()">Eliminar Páginas Selecionadas</button>
+    <!-- add button to delete selected pages -->
+    <button class="add-button" (click)="evaluateAccessibility()">Avaliar Páginas Selecionadas</button>
+
+  <label for="new-page">Url da Página: </label>
+  <input id="new-page" #pageURL />
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="addPage(pageURL.value); pageURL.value=''">
+    Adicionar Página
+  </button>
+</div>
