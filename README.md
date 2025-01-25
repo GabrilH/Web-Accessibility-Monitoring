@@ -57,6 +57,12 @@ During the Software Design course, we conducted an in-depth analysis of the proj
 
 Additionally, we utilized SonarQube to perform static analysis on the project. It helped us identify quality issues, security vulnerabilities, and potential bugs present in the code.
 
+## Demos
+
+- Sprint 1: https://youtu.be/zEf2dCKR0tg
+- Sprint 2: https://youtu.be/6c8u_1bQsWg
+- Sprint 3: https://youtu.be/M4h1ITS1DrM
+
 ## Contributors
 - Guilherme Sousa (fc58170)
 - Gabriel Henriques (fc58182)
