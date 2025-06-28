@@ -1,5 +1,12 @@
 # Web Accessibility Monitoring Platform
 
+**Authors:**
+- Guilherme Sousa (fc58170)
+- Gabriel Henriques (fc58182)
+- Pedro Cascão (fc58232)
+
+**Grade:** 19.7/20
+
 ## Introduction
 
 This project is a MEAN stack web accessibility monitoring platform developed during the Information Systems Project course. The platform allows webmasters to evaluate and continuously monitor the accessibility of web pages. It provides indicators related to the accessibility of these pages. The project was created using the Agile Development Methodology, based on sprints and user stories to fulfill the functional requirements of the application.
@@ -62,8 +69,3 @@ Additionally, we utilized SonarQube to perform static analysis on the project. I
 - Sprint 1: https://youtu.be/zEf2dCKR0tg
 - Sprint 2: https://youtu.be/6c8u_1bQsWg
 - Sprint 3: https://youtu.be/M4h1ITS1DrM
-
-## Contributors
-- Guilherme Sousa (fc58170)
-- Gabriel Henriques (fc58182)
-- Pedro Cascão (fc58232)
