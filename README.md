@@ -5,7 +5,7 @@
 - Gabriel Henriques (fc58182)
 - Pedro Cascão (fc58232)
 
-**Grade:** 19.7/20
+**Grade:** 20/20
 
 ## Introduction
 
